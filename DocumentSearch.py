@@ -15,10 +15,12 @@ def move_documents(folder):
     for subdir, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(subdir, file)
+            
             if any(filepath.endswith(ext) for ext in file_extensions):
                 try:
                     shutil.move(filepath, os.path.join(destination_folder, file))
                     print("Document found: ", file)
+                
                 except Exception:
                     print(Exception)
 # Call the function to start the search and move
